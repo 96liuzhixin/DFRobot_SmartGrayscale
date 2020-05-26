@@ -1,0 +1,46 @@
+#######################################
+# Syntax Coloring DFRobot_SmartGrayscale_IIC
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+DFRobot_SmartGrayscale_IIC	KEYWORD1
+DFRobot_SmartGrayscale	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+setIICAddr	KEYWORD2
+setGears	KEYWORD2
+setMode	KEYWORD2
+setOutPolar	KEYWORD2
+setLedPolar	KEYWORD2
+setRegisterValue	KEYWORD2
+getWhite	KEYWORD2
+getBlack	KEYWORD2
+getThres	KEYWORD2
+getIICAddr	KEYWORD2
+getPID	KEYWORD2
+getVID	KEYWORD2
+getMode	KEYWORD2
+getOutPolar	KEYWORD2
+getLedPolar	KEYWORD2
+getGears	KEYWORD2
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+GEARS_HIGH	LITERAL1
+GEARS_MIDDLE	LITERAL1
+GEARS_LOW	LITERAL1
+DIGITAL_OUT_MODE	LITERAL1
+ANALOG_OUT_MODE	LITERAL1
+OUT_POLAR_HIGH	LITERAL1
+OUT_POLAR_LOW	LITERAL1
+WHITE_LIGHT	LITERAL1
+BLACK_LIGHT	LITERAL1
+IIC_ADDRESS_R	LITERAL1
