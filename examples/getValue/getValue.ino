@@ -5,7 +5,7 @@
  * @copyright   Copyright (c) 2010 DFRobot Co.Ltd (http://www.dfrobot.com)
  * @licence     The MIT License (MIT)
  * @author      [PengKaixing](kaixing.peng@dfrobot.com)
- * @version  V2.0
+ * @version  V1.0
  * @date  2020-5-21
  * @get from https://www.dfrobot.com
  * @url https://github.com/DFRobot/DFRobot_SmartGrayscale.git
