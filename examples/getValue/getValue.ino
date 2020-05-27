@@ -55,5 +55,6 @@ void loop()
 
   Serial.print("LEDpolar = 0x");
   Serial.println(smartgrayscale.getLedPolar(),HEX);
+  Serial.println();
   delay(1000);
 }
