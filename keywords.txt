@@ -19,9 +19,11 @@ setGears	KEYWORD2
 setMode	KEYWORD2
 setOutPolar	KEYWORD2
 setLedPolar	KEYWORD2
+setTrack	KEYWORD2
+setAmbience	KEYWORD2
 setRegisterValue	KEYWORD2
-getWhite	KEYWORD2
-getBlack	KEYWORD2
+getAmbience	KEYWORD2
+getTrack	KEYWORD2
 getThres	KEYWORD2
 getIICAddr	KEYWORD2
 getPID	KEYWORD2

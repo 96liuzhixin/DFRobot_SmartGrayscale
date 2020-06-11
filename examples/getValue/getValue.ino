@@ -26,7 +26,7 @@ void setup()
 
 void loop()
 {
-  Serial.print("IIC address = 0x");
+  Serial.print("IIC address = 0x0");
   Serial.println(smartgrayscale.getIICAddr(),HEX);
   
   Serial.print("PID = 0x");
@@ -35,25 +35,25 @@ void loop()
   Serial.print("VID = 0x");
   Serial.println(smartgrayscale.getVID(),HEX);
 
-  Serial.print("Gears = 0x");
+  Serial.print("Gears = 0x0");
   Serial.println(smartgrayscale.getGears(),HEX);
 
-  Serial.print("Mode = 0x");
+  Serial.print("Mode = 0x0");
   Serial.println(smartgrayscale.getMode(),HEX);
 
-  Serial.print("White = 0x");
-  Serial.println(smartgrayscale.getWhite(),HEX);
+  Serial.print("Ambience = 0x");
+  Serial.println(smartgrayscale.getAmbience(),HEX);
 
-  Serial.print("Black = 0x");
-  Serial.println(smartgrayscale.getBlack(),HEX);
+  Serial.print("Track = 0x");
+  Serial.println(smartgrayscale.getTrack(),HEX);
 
   Serial.print("Thres = 0x");
   Serial.println(smartgrayscale.getThres(),HEX);
 
-  Serial.print("Outpolar = 0x");
+  Serial.print("Outpolar = 0x0");
   Serial.println(smartgrayscale.getOutPolar(),HEX);
 
-  Serial.print("LEDpolar = 0x");
+  Serial.print("LEDpolar = 0x0");
   Serial.println(smartgrayscale.getLedPolar(),HEX);
   Serial.println();
   delay(1000);

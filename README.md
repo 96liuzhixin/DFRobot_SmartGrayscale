@@ -38,16 +38,16 @@ To use this library, first download the library file, paste it into the \Arduino
   uint8_t begin();
 
   /**
-   * @brief get white value
-   * @return white value, This value is the reference value for the white line
+   * @brief get Ambience value
+   * @return Ambience value, This value is the reference value for the Ambience
    */
-  int16_t getWhite();
+  int16_t getAmbience();
 
   /**
-   * @brief get black value
-   * @return black value, This value is the reference value for the black line
+   * @brief get Track value
+   * @return Track value, This value is the reference value for the Track
    */
-  int16_t getBlack();
+  int16_t getTrack();
 
   /**
    * @brief get Thres value
@@ -115,6 +115,18 @@ To use this library, first download the library file, paste it into the \Arduino
    * @param newaddr is i2c device number.
    */
   void setIICAddr(uint8_t newaddr);
+
+  /**
+   * @brief set Ambience
+   * @param The value of the current Ambience
+   */
+  void setAmbience(uint8_t newAmbience);
+
+  /**
+   * @brief set Track
+   * @param The value of the current newTrack
+   */
+  void setTrack(uint16_t newTrack);
 
   /**
    * @brief set GEARS ,The higher the gear setting, the higher the measurement

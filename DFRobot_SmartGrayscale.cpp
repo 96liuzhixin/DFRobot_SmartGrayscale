@@ -37,7 +37,7 @@ uint8_t DFRobot_SmartGrayscale::getMode()
   return sRegister.modevalue;
 }
 
-uint16_t DFRobot_SmartGrayscale::getWhite()
+uint16_t DFRobot_SmartGrayscale::getAmbience()
 {
   uint16_t LIGHT;
   getRegisterValue();
@@ -45,7 +45,7 @@ uint16_t DFRobot_SmartGrayscale::getWhite()
   return LIGHT;
 }
 
-uint16_t DFRobot_SmartGrayscale::getBlack()
+uint16_t DFRobot_SmartGrayscale::getTrack()
 {
   uint16_t BLACK;
   getRegisterValue();
@@ -75,32 +75,54 @@ uint8_t DFRobot_SmartGrayscale::getLedPolar()
 
 void DFRobot_SmartGrayscale::setIICAddr(uint8_t newaddr)
 {
-  setRegisterValue(IIC_ADDRESS_R,newaddr);
+  sendbuf[0] = newaddr;
+  setRegisterValue(IIC_ADDRESS_R ,sendbuf ,1);
 }
 
 void DFRobot_SmartGrayscale::setGears(uint8_t newGears)
 {
-  setRegisterValue(GEARS_R,newGears);
+  sendbuf[0] = newGears;
+  setRegisterValue(GEARS_R ,sendbuf ,1);
 }
 
 void DFRobot_SmartGrayscale::setMode(uint8_t newMode)
 {
-  setRegisterValue(MODE_R,newMode);
+  sendbuf[0] = newMode;
+  setRegisterValue(MODE_R ,sendbuf ,1);
 }
+
+void DFRobot_SmartGrayscale::setTrack(uint16_t newTrack)
+{
+  sendbuf[0] = (uint8_t)(newTrack >> 8);
+  sendbuf[1] = (uint8_t)(newTrack & 0x00FF);
+  setRegisterValue(TRACK_R ,sendbuf ,2);
+}
+
+void DFRobot_SmartGrayscale::setAmbience(uint16_t newAmbience)
+{
+  sendbuf[0] = (uint8_t)(newAmbience >> 8);
+  sendbuf[1] = (uint8_t)(newAmbience & 0x00FF);
+  setRegisterValue(AMBIENCE_R ,sendbuf ,2);
+}
+
 
 void DFRobot_SmartGrayscale::setOutPolar(uint8_t newOutpolar)
 {
-  setRegisterValue(OUT_POLAR_R,newOutpolar);
+  sendbuf[0] = newOutpolar;
+  setRegisterValue(OUT_POLAR_R ,sendbuf ,1);
 }
 
 void DFRobot_SmartGrayscale::setLedPolar(uint8_t newLEDpolar)
 {
-  setRegisterValue(LED_POLAR_R,newLEDpolar);
+  sendbuf[0] = newLEDpolar;
+  setRegisterValue(LED_POLAR_R ,sendbuf ,1);
 }
 
-void DFRobot_SmartGrayscale::setRegisterValue(uint8_t Register,uint8_t data)
+void DFRobot_SmartGrayscale::setRegisterValue(uint8_t Register, uint8_t *data, uint8_t len)
 {
-  writeData(Register,data);
+  for(uint8_t i = 0; i < len; i++)
+    sendbuf[i] = data[i];
+  writeData(Register ,sendbuf ,len);
 }
 
 DFRobot_SmartGrayscale_IIC::DFRobot_SmartGrayscale_IIC(TwoWire *pWire, uint8_t addr)
@@ -118,11 +140,12 @@ uint8_t DFRobot_SmartGrayscale_IIC::begin(void)
   return 1;
 }
 
-void DFRobot_SmartGrayscale_IIC::writeData(uint8_t Reg,uint8_t Data)
+void DFRobot_SmartGrayscale_IIC::writeData(uint8_t Reg ,uint8_t *Data ,uint8_t len)
 {
   _pWire->beginTransmission(this->_IIC_addr);
   _pWire->write(Reg);
-  _pWire->write(Data);
+  for(uint8_t i = 0; i < len; i++)
+    _pWire->write(Data[i]);
   _pWire->endTransmission();
 }
 
